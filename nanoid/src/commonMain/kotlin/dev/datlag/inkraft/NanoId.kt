@@ -9,12 +9,28 @@ import kotlin.math.floor
 import kotlin.math.log
 import kotlin.random.Random
 
+/**
+ * Singleton for NanoId generation.
+ */
 data object NanoId {
 
+    /**
+     * The default random number generator.
+     * It uses a platform specific SecureRandom under the hood.
+     */
     @JvmStatic
     val DEFAULT_NUMBER_GENERATOR = SecureRandom
+
+    /**
+     * The default alphabet.
+     * URL-friendly.
+     */
     const val DEFAULT_ALPHABET = "_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    const val DEFAULT_SIZE = 12
+
+    /**
+     * The default size.
+     */
+    const val DEFAULT_SIZE = 21
 
     private fun calculateMask(alphabet: String): Int {
         return (2 shl floor(log((alphabet.length - 1).toDouble(), 2.0)).toInt()) -1
@@ -24,6 +40,10 @@ data object NanoId {
         return ceil(1.6 * mask * size / alphabet.length).toInt()
     }
 
+    /**
+     * Generate a NanoId for the specified [random] number generator, [alphabet] and [size].
+     * The output is URL-friendly per default, this behavior can be changed by specifying a custom [alphabet].
+     */
     @JvmStatic
     @JvmOverloads
     fun generate(
