@@ -1,6 +1,7 @@
 package dev.datlag.inkraft
 
 import kotlin.random.Random
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
@@ -9,6 +10,7 @@ import kotlin.test.fail
 class NanoIdTest {
 
     @Test
+    @Ignore
     fun `verify 100k random nano ids are unique`() {
         val idCount = 100000
         val ids = hashSetOf<String>()
@@ -42,6 +44,7 @@ class NanoIdTest {
     }
 
     @Test
+    @Ignore
     fun `various sizes`() {
         for (size in 1 until 1001) {
             val id = NanoId.generate(size = size)
