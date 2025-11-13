@@ -1,13 +1,14 @@
 [versions]
 lib = "1.0.0"
-agp = "8.13.0"
+agp = "8.13.1"
 korlibs-crypto = "6.0.1"
 kotlin = "2.2.21"
-publish = "0.34.0"
+publish = "0.35.0"
 versions = "0.53.0"
 
 [libraries]
 korlibs-crypto = { group = "com.soywiz", name = "korlibs-crypto", version.ref = "korlibs-crypto" }
+test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
 
 [plugins]
 android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }

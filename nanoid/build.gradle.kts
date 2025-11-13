@@ -133,6 +133,10 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.korlibs.crypto)
         }
+
+        commonTest.dependencies {
+            implementation(libs.test)
+        }
     }
 }
 
